@@ -11,6 +11,7 @@ def register_routes(api_bp):
     def welcome():
         return ("Welcome to simple REST API")
     
+    #Products
     @api_bp.route('/api/products', methods=['GET'])
     def get_all_parts():
         parts = Part.objects().all()
@@ -95,7 +96,7 @@ def register_routes(api_bp):
             if not search_phrase:
                 return jsonify({"error": "Missing search phrase"}), 400
 
-            # Mandatory fields in the Part model
+            # Mandatory fields in the Part model for search
             mandatory_fields = ['serial_number', 'name', 'description', 'category', 'quantity', 'price']
 
             # Build a query to search a search_phrase in any of the mandatory fields
@@ -113,7 +114,7 @@ def register_routes(api_bp):
         except Exception as e:
             return jsonify({"error": str(e)}), 500
         
-    #categories
+    #Categories
     @api_bp.route('/api/categories', methods=['GET'])
     def get_all_categories():
         categories = Category.objects().all()
@@ -131,7 +132,7 @@ def register_routes(api_bp):
     def create_category():
         try:
             data = request.json
-            validate_category_data(data)  # Validate the category data
+            validate_category_data(data) 
             category = Category(**data)
             category.save()
             return jsonify(category.to_json()), 201
@@ -146,7 +147,7 @@ def register_routes(api_bp):
                 return jsonify({"error": "Category not found"}), 404
 
             data = request.json
-            validate_category_data(data)  # Validate the category data
+            validate_category_data(data) 
 
             category.modify(**data)
             return jsonify(category.to_json())

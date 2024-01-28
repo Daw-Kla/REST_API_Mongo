@@ -13,16 +13,12 @@ def validate_part_data(data):
         raise ValueError(f"Category '{category_name}' does not exist.")
     
 def validate_location(value):
-    # List of mandatory fields for the "location" dictionary
     mandatory_fields = ['bookcase', 'column', 'cuvette', 'room', 'row', 'shelf']
-
-    # Check if all mandatory fields are present
     for field in mandatory_fields:
         if field not in value:
             raise ValueError(f'Missing required field in location: {field}')
 
 def validate_category_data(data):
-    # Check if all mandatory fields are present
     required_fields = ['name', 'parent_name']
     for field in required_fields:
         if field not in data:
