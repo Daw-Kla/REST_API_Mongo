@@ -83,7 +83,7 @@ location:  {
 ```bash
 #The category module
 {
-name: "Electronics"
+name: "Electronics",
 parent_name: ""
 }
 ```
