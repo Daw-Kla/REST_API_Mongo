@@ -45,9 +45,8 @@ These technologies and frameworks collectively form the backbone of your applica
 Install requirements from a .txt file:
 
 ```bash
-# Example setup commands
+# setup command
 pip3 install -r requirements.txt
-python3 setup.py
 ```
 After installation run:
 ```bash
