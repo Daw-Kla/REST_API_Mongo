@@ -64,18 +64,18 @@ To play with API You can use curl. If You want to get things more visualised i r
 ```bash
 #The part module
 {
-serial_number: "123456"
-name: "Resistor 1"
-description: "A resistor for testing"
-category: "Resistors"
-quantity: 10
-price: 1.99
+serial_number: "123456",
+name: "Resistor 1",
+description: "A resistor for testing",
+category: "Resistors",
+quantity: 10,
+price: 1.99,
 location:  {
-    room: "A"
-    bookcase: "B"
-    shelf: "1"
-    cuvette: "C"
-    column: "2"
+    room: "A",
+    bookcase: "B",
+    shelf: "1",
+    cuvette: "C",
+    column: "2",
     row: "3"}
 }
 ```
@@ -121,7 +121,7 @@ parent_name: ""
 
   - **Example_4:**
     ```bash
-    curl -X POST -H "Content-Type: application/json" -d '{"serial_number": "ABC123", "name": "Sample Part", "category": "Electronics", "quantity": 10, "price": 25.99}' http://localhost:5000/api/products
+    curl -X POST -H "Content-Type: application/json" -d '{"serial_number": "ABC123", "name": "Sample Part", "category": "Electronics", "quantity": 10, "price": 25.99, location:  {room: "A", bookcase: "B", shelf: "1", cuvette: "C", column: "2", row: "3"}}' http://localhost:5000/api/products
     ```
 
 - **Endpoint_5:**
@@ -143,7 +143,7 @@ parent_name: ""
 
   - **Example:**
     ```bash
-    curl -X DELETE http://localhost:5000/api/products/ABC123
+    curl -X DELETE http://localhost:5000/api/products/123456
     ```
 
 ### Categories
